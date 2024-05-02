@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { NavLink} from "react-router-dom";
 import menu from "../assets/menu.svg";
 import close from "../assets/close.svg";
+import Register from '../Pages/Register';
 
 const Navbar = () => {
 const [toggle, setToggle] = useState(false);
 const [border, setBorder] =useState(false);
+
+const [showForm, setShowForm] = useState(false);
 
 useEffect(() =>{
   const showBorder = () =>{
@@ -31,7 +34,7 @@ useEffect(() =>{
           <NavLink to='/'>Home</NavLink>
           <NavLink to='/about'>About Us</NavLink>
           <NavLink to='/contact'>Contact Us</NavLink>
-          <NavLink to='/register'>Sign In/Register</NavLink>
+          <NavLink onClick={()=> setShowForm(true)} >Sign In/Register</NavLink>
         </nav>
         <div className='fixed sm:hidden flex flex-1 justify-end items-center z-10' >
           <img src={toggle? close:menu } alt="icons"  className=' w-[16px] h-[16px] object-contain fixed right-4' onClick={() => setToggle((prev) =>!prev)}/>
@@ -40,11 +43,14 @@ useEffect(() =>{
              <NavLink to='/' onClick={()=> setToggle(false)}>Home</NavLink>
              <NavLink to='/about' onClick={()=> setToggle(false)}>About Us</NavLink>
              <NavLink to='/contact' onClick={()=> setToggle(false)}>Contact Us</NavLink>
-             <NavLink to='/register' onClick={()=> setToggle(false)}>Sign In/Register</NavLink>
+             <NavLink  onClick={()=> setToggle(false) || setShowForm(true)}>Sign In/Register</NavLink>
            </nav>
           </div>
       </div>
       </header>
+      <div className={`${showForm? "flex":"hidden"} fixed top-0 right-0`} >
+        <Register showNoForm={()=> setShowForm( false)}/>
+      </div>
     </div>
   )
 }
