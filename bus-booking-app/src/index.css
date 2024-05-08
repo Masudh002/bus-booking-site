@@ -52,3 +52,7 @@ header a:hover {
   text-align: left;
   margin-bottom: 12px;
 }
+.slidein{
+  transform-origin: top;
+  transition: all ease-in-out .5s;
+}

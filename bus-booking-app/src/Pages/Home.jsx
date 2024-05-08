@@ -17,24 +17,24 @@ const Home = () => {
   const [seatNumber, setSeatNumber] = useState(1);
 
   const filteredStartingPoints = departurePlace.filter(point =>
-    point.toLowerCase().includes(startingfilterText.toLowerCase())
+    point.toLowerCase().startsWith(startingfilterText.toLowerCase())
     );
     
     const filteredEndingPoints = destinationPlace.filter(point =>
-      point.toLowerCase().includes(endingfilterText.toLowerCase())
+      point.toLowerCase().startsWith(endingfilterText.toLowerCase())
       );
     const handleStartingInputChange = (e) => {
       const text = e.target.value;
       setStartingFilterText(text);
       setShowStartingOptions(true);
-      setSelectedStartingPoint('');
+      setSelectedStartingPoint(text);
     };
 
     const handleEndingInputChange = (e) => {
       const text = e.target.value;
       setEndingFilterText(text);
       setShowEndingOptions(true);
-      setSelectedEndingPoint('');
+      setSelectedEndingPoint(text);
     };
     
     const handleSeatInputChange= (e) => {

@@ -21,12 +21,12 @@ const Signup = ({toggleForm}) => {
     }
   }
   return (
-    <div className='flex justify-center items-center flex-col'>
+    <div className=' flex justify-center items-center flex-col z-30'>
      <h1 className={`${styles.heading2} text-center`}>Sign Up page</h1>       
       {message? (<p style={{ background:"pink", padding:'12px', margin:'4px', fontWeight:'bold', borderRadius:'5px'}}>
           We Couldn't create your account  <br /> Please check your responses and try again </p>):("")
        }
-     <form className=' flex space-x-1 flex-col' onSubmit={handleSubmit}>
+     <form className=' flex flex-col' onSubmit={handleSubmit}>
           <input type="text"
              placeholder='Enter Full Name'
              required
@@ -66,7 +66,7 @@ const Signup = ({toggleForm}) => {
          <button type='submit'  className=' bg-orange-500 hover:bg-orange-400 cursor-pointer py-1 rounded-md'> Signup</button>
      </form>
      <p style={{color:"red", padding:"2px"}}>{message}</p>
-     <p className=' font-poppins'>Already have an account? <button onClick={toggleForm} className=' ml-20 underline cursor-pointer font-semibold'>Login</button> </p>
+     <p className=' font-poppins'>Already have an account? <button onClick={toggleForm} className=' sm:ml-20 ml-2 underline cursor-pointer font-semibold'>Login</button> </p>
    </div>
   )
 }

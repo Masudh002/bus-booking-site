@@ -7,7 +7,7 @@ const Signin = ({toggleForm}) => {
   return (
     <div className=' flex flex-col z-30'>
       <h1 className={`${styles.heading2} text-center`}>Sign In</h1>
-      <form onSubmit={handleSubmit} className=' flex flex-col space-x-1'>
+      <form onSubmit={handleSubmit} className=' flex flex-col'>
          <input type="email" placeholder='Enter Email' required className={`${styles.input} border-[1px] rounded-md`} />
          <input type="password" placeholder='Enter Password' required className={`${styles.input} border-[1px] rounded-md`} />
          <button className=' bg-orange-500 p-2 rounded-md hover:bg-orange-400 text-[18px] cursor-pointer'>Sign In</button>
